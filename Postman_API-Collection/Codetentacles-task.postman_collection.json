@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "337c3b2d-6e41-4a4b-8558-7f8ff06eb34a",
+		"name": "Codetentacles-task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25450330"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "create-seller",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"sam Doe\",\r\n  \"email\": \"sam@example.com\",\r\n  \"mobileNo\": \"8555554542\",\r\n  \"country\": \"India\",\r\n  \"state\": \"Maharashtra\",\r\n  \"skills\": [\"NodeJS\", \"Express\", \"TypeORM\"],\r\n  \"password\": \"seller123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/admin/create-seller",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"create-seller"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin-login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@example.com\",\r\n  \"password\": \"admin123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/admin/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin-sellerpagination",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/admin/sellers?page=1&limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"admin",
+								"sellers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Seller",
+			"item": [
+				{
+					"name": "add-product",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqb2huQGV4YW1wbGUuY29tIiwicm9sZSI6InNlbGxlciIsImlhdCI6MTc2NDc0MTMyMiwiZXhwIjoxNzY0ODI3NzIyfQ.-7so0pLeleXxugTQqay-UMTQlLKSkK9l0g0uD-Tkau8",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "productName",
+									"value": "Gaming Mouse",
+									"type": "text"
+								},
+								{
+									"key": "productDescription",
+									"value": "High precision wireless mouse",
+									"type": "text"
+								},
+								{
+									"key": "brands",
+									"value": "[{\"brandName\":\"Hp\",\"detail\":\"Gaming\",\"price\":1200},{\"brandName\":\"Dell\",\"detail\":\"Pro\",\"price\":2500}]",
+									"type": "text"
+								},
+								{
+									"key": "brandImage",
+									"type": "file",
+									"src": "/C:/Users/SanketKopnar/Downloads/m2download.jpg"
+								},
+								{
+									"key": "brandImage",
+									"type": "file",
+									"src": "/C:/Users/SanketKopnar/Downloads/m_download.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/seller/add-product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"seller",
+								"add-product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login-seller",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"john@example.com\",\r\n  \"password\": \"seller123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/seller/login-seller",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"seller",
+								"login-seller"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list-productpagination",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqb2huQGV4YW1wbGUuY29tIiwicm9sZSI6InNlbGxlciIsImlhdCI6MTc2NDc0MTMyMiwiZXhwIjoxNzY0ODI3NzIyfQ.-7so0pLeleXxugTQqay-UMTQlLKSkK9l0g0uD-Tkau8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/seller/products?page=1&limit=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"seller",
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqb2huQGV4YW1wbGUuY29tIiwicm9sZSI6InNlbGxlciIsImlhdCI6MTc2NDc0MTMyMiwiZXhwIjoxNzY0ODI3NzIyfQ.-7so0pLeleXxugTQqay-UMTQlLKSkK9l0g0uD-Tkau8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/seller/product/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"seller",
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
