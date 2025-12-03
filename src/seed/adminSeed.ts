@@ -3,13 +3,13 @@ import bcrypt from "bcrypt";
 import { AppDataSource } from "../config/data-source";
 import { Admin } from "../entities/Admin";
 
-async function seed() {
-//   await AppDataSource.initialize();
+ export async function seed() {
+  await AppDataSource.initialize();
 
   const repo = AppDataSource.getRepository(Admin);
 
   const existing = await repo.findOne({ where: { email: "admin@example.com" }});
-  // debugger
+  debugger
   if (existing) {
     console.log("Admin already exists.");
     process.exit(0);

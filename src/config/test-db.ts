@@ -1,11 +1,11 @@
-import { AppDataSource } from "./data-source";
+// import { AppDataSource } from "./data-source";
 
-AppDataSource.initialize()
-  .then(() => {
-    console.log("Database initialized successfully!");
-    process.exit(0);
-  })
-  .catch((err) => {
-    console.error("Database initialization error:", err);
-    process.exit(1);
-  });
+// AppDataSource.initialize()
+//   .then(() => {
+//     console.log("Database initialized successfully!");
+//     process.exit(0);
+//   })
+//   .catch((err) => {
+//     console.error("Database initialization error:", err);
+//     process.exit(1);
+//   });
